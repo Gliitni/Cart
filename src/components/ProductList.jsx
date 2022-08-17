@@ -12,7 +12,7 @@ const ProductList = (props) => {
           ))}
           <TableCell>
             {
-              <Button onClick={() => props.onAdd(props.product)}>
+              <Button variant="text" onClick={() => props.onAdd(props.product)}>
                 Add To Cart
               </Button>
             }

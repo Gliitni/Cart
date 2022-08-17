@@ -14,37 +14,26 @@ const Cart = (props) => {
       {cartItems.length === 0 && <Typography>Cart is empty</Typography>}
       {cartItems.map((item) => (
         <div key={item.id}>
-          <Typography>{item.name}</Typography>
+          <h4>{item.name}</h4>
           <Typography>
             Quantity:{item.id == 1 ? item.qty + 1 : item.qty}
           </Typography>
-          <div>
-            <Button onClick={() => onRemove(item)}>-</Button>
-            <Button onClick={() => onAdd(item)}>+</Button>
-          </div>
 
           <div>
             {item.qty} x ${item.price}
+          </div>
+          <div>
+            <Button variant="outlined" onClick={() => onRemove(item)}>-</Button>
+            <Button variant="outlined" onClick={() => onAdd(item)}>+</Button>
           </div>
         </div>
       ))}
 
       {cartItems.length !== 0 && (
         <>
-          {/* <Typography>Items Price</Typography>
-            <Typography>${itemsPrice}</Typography> */}
-          {/* <div className="row">
-              <div className="col-2">Tax Price</div>
-              <div className="col-1 text-right">${taxPrice.toFixed(2)}</div>
-            </div> */}
-          {/* <div className="row">
-              <div className="col-2">Shipping Price</div>
-              <div className="col-1 text-right">
-                ${shippingPrice.toFixed(2)}
-              </div>
-            </div> */}
+        
 
-          <Typography>Total Price</Typography>
+          <h3>Total Price</h3>
 
           <Typography>${totalPrice}</Typography>
           <Button variant="contained" onClick={() => setCartItems([])}>
