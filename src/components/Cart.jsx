@@ -16,26 +16,27 @@ const Cart = (props) => {
         <div key={item.id}>
           <h4>{item.name}</h4>
           <Typography>
-            Quantity:{item.id == 1 ? item.qty + 1 : item.qty}
+            Quantity:{item.id == 1 ? item.qty*2: item.qty}
           </Typography>
 
           <div>
             {item.qty} x ${item.price}
           </div>
           <div>
-            <Button variant="outlined" onClick={() => onRemove(item)}>-</Button>
-            <Button variant="outlined" onClick={() => onAdd(item)}>+</Button>
+            <Button variant="outlined" onClick={() => onRemove(item)}>
+              -
+            </Button>
+            <Button variant="outlined" onClick={() => onAdd(item)}>
+              +
+            </Button>
           </div>
         </div>
       ))}
 
       {cartItems.length !== 0 && (
         <>
-        
+          <h3>Total Price: ${totalPrice}</h3>
 
-          <h3>Total Price</h3>
-
-          <Typography>${totalPrice}</Typography>
           <Button variant="contained" onClick={() => setCartItems([])}>
             Clear
           </Button>
